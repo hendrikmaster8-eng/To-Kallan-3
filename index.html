@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Important Question 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6ee;
+      text-align: center;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #d6336c;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 14px 28px;
+      margin: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+      font-size: 22px;
+    }
+
+    .secondary {
+      background-color: #adb5bd;
+      color: black;
+    }
+
+    .giant {
+      font-size: 32px;
+      padding: 24px 48px;
+    }
+
+    .fireworks {
+      background-image:
+        url("https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"),
+        url("https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif");
+      background-size: cover;
+      min-height: 100vh;
+      color: #ff2f92;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="question">Kallan, will you be my Valentine? 💘</h1>
+
+  <div id="buttons">
+    <button class="yes" onclick="yesFinal()">Yes 💕</button>
+    <button class="secondary" onclick="noClicked()">No 🙄</button>
+  </div>
+
+  <script>
+    let noCount = 0;
+
+    const messages = [
+      "why :( ",
+      "you hate me 🥺",
+      "ill buy you jollibee :3",
+      "Fine five guys?",
+      "What if a birkin is involved (in like 6–7 years) ✨💖",
+      "Fine last offer my love and affection :3 (with a baguette and salami)",
+      "you still clicked no? :("
+    ];
+
+    function noClicked() {
+      const question = document.getElementById("question");
+      const buttons = document.getElementById("buttons");
+
+      if (noCount < messages.length) {
+        question.innerText = messages[noCount];
+        noCount++;
+      }
+
+      if (noCount === messages.length) {
+        buttons.innerHTML = `
+          <button class="secondary" onclick="yesIDid()">Yes I did</button>
+        `;
+      }
+    }
+
+    function yesIDid() {
+      document.getElementById("question").innerText =
+        "FINE birkin and your glasses :3 (you have no other option)";
+      document.getElementById("buttons").innerHTML = `
+        <button class="yes giant" onclick="fireworks()">YES 💖</button>
+      `;
+    }
+
+    function fireworks() {
+      document.body.className = "fireworks";
+      document.body.innerHTML = `
+        <h1>YAYYYYYYYY 🎆💖</h1>
+        <h1>HEHEHEH I WUV UUUU 💕</h1>
+        <button class="yes" onclick="birkin()">Press for birkin</button>
+      `;
+    }
+
+    function birkin() {
+      document.body.innerHTML = `
+        <h1>Joking 😭</h1>
+        <p style="font-size:22px;">I don’t have a birkin but…..</p>
+        <button class="yes" onclick="but()">But?</button>
+      `;
+    }
+
+    function but() {
+      document.body.innerHTML = `
+        <h1>Check the trunk :3 hehe 🚗💖</h1>
+      `;
+    }
+
+    function yesFinal() {
+      fireworks();
+    }
+  </script>
+
+</body>
+</html>
